@@ -1,12 +1,24 @@
 package com.example.device.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "device")
 public class Device {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String brand;
+    @Enumerated(EnumType.STRING)
     private DeviceState state;
     private LocalDateTime creationTime;
 
